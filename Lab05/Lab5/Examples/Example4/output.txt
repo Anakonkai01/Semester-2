@@ -1,0 +1,3 @@
+number element of array: 1
+0	
+sum=6
