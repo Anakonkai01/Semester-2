@@ -5,7 +5,7 @@ public class Node<E> {
     private Node<E> next;
 
     public Node(){
-
+        
     }
 
     public Node(E data){
