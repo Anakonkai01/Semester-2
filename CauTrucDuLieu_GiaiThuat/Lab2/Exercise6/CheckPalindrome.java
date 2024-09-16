@@ -5,9 +5,6 @@ import Lab2.implementStack.MyStack;
 
 public class CheckPalindrome {
 
-
-
-
     public static boolean checkPalindrome(String str){
         String s1 = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 

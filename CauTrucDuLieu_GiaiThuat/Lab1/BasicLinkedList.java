@@ -165,6 +165,29 @@ public class BasicLinkedList <E> implements ListInterface <E> {
         }
     }
     
+    public void addSortedList(E item){
+        ListNode<E> node = head;
+        
+        if((int)node.getElement() > (int) item){
+            addFirst(item);
+            return;
+        }
+        
+        ListNode<E> getNode = getNodeBigger(node, item);
+        if(getNode == null) addLast(item);
+        
+        ListNode<E> newNode = new ListNode<>(item);
+        newNode.setNext(getNode.getNext());
+        getNode.setNext(newNode);
+    }
+
+    public ListNode<E> getNodeBigger(ListNode<E> curr, E item){
+        if(curr == null) return null;
+        if((int)curr.getNext().getElement() > (int) item) return curr;
+        return getNodeBigger(curr.getNext(), item);
+    }
+
+    // count even number
     
 	
 }
