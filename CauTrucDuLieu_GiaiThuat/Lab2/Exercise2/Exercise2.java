@@ -3,12 +3,11 @@ package Lab2.Exercise2;
 import Lab2.implementStack.MyStack;
 
 public class Exercise2 {
-
-    
     
     
     // recursion
     public static long computeFunctionP_UsingRecursion(int n){
+        if(n < 1) return 0;
         if(n == 1){
             return 3;
         }
@@ -17,6 +16,8 @@ public class Exercise2 {
 
     // stack
     public static long computeFunctionP_UsingStack(int n){
+        if(n <= 1) return 0;
+
         MyStack<Long> myStack = new MyStack<>();
         
         long res = 0;
@@ -34,7 +35,12 @@ public class Exercise2 {
 
     public static void main(String[] args) {
         int n  = 3;
+        System.out.println("n = 3:");
+        System.out.println("Tinh Toan su dung stack ");
         System.out.println(computeFunctionP_UsingStack(n));
+
+        System.out.println("Tinh Toan su dung recursion");
+        System.out.println(computeFunctionP_UsingRecursion(n));
         
     }
 }
