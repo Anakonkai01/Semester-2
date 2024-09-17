@@ -4,39 +4,17 @@ import java.util.LinkedList;
 
 
 public class Exercise8 {
-
-    // public void addSortedList(E item){
-    //     ListNode<E> node = head;
-        
-    //     if((int)node.getElement() > (int) item){
-    //         addFirst(item);
-    //         return;
-    //     }
-        
-    //     ListNode<E> getNode = getNodeBigger(node, item);
-    //     if(getNode == null) addLast(item);
-        
-    //     ListNode<E> newNode = new ListNode<>(item);
-    //     newNode.setNext(getNode.getNext());
-    //     getNode.setNext(newNode);
-    // }
-
-    // public ListNode<E> getNodeBigger(ListNode<E> curr, E item){
-    //     if(curr == null) return null;
-    //     if((int)curr.getNext().getElement() > (int) item) return curr;
-    //     return getNodeBigger(curr.getNext(), item);
-    // }
-
-    // b
-    public static int countEvenNumber(LinkedList)
+    // nam ben BasicLinkedList
+    
     public static void main(String[] args) {
-        LinkedList<Integer> myList = new LinkedList<>();
+        BasicLinkedList<Integer> myList = new BasicLinkedList<>();
+        myList.addLast(1);;
+        myList.addLast(2);
+        myList.addLast(3);
+        myList.addLast(4);
+        myList.addLast(5);
 
-        myList.add(1);
-        myList.add(2);
-        myList.add(3);
-        myList.add(4);
-        myList.add(7);
-        
+        System.out.println(myList.countEvenNumber(myList.getHead()));
+        System.out.println(myList.summAllNumber(myList.getHead()));
     }
 }

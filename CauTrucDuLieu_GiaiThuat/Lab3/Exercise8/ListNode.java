@@ -1,4 +1,6 @@
-public class ListNode <E> {
+package Lab3.Exercise8;
+
+class ListNode <E> {
 	/* data attributes */
 	private E element;
 	private ListNode <E> next;

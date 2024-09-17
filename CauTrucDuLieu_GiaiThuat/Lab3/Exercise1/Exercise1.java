@@ -32,23 +32,7 @@ class Exercise1{
         return checkPrime(n, ++i);
     }
     
-    // d for loop
-    public static boolean checkPrimeforLoop(int n){
-        for(int i = 2; i <= n/2; ++i){
-            if(n % i == 0) return false;
-        }
-        return true;
-    }
-
     // e
-    // function gcd(a, b)
-    // while a ≠ b 
-    //     if a > b
-    //         a := a − b
-    //     else
-    //         b := b − a
-    // return a
-
     public static int gcd(int a,int b){
         if(a == b){
             return a;
