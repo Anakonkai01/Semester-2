@@ -1,7 +1,6 @@
-import BasicLinkedList;
-import ListNode;
-
 package Exercise3;
+import MyLinkedList.*;
+
 public class MyBasicLinkedList {
     BasicLinkedList<Integer> linkedList = new BasicLinkedList<>();
     
@@ -21,7 +20,7 @@ public class MyBasicLinkedList {
         int count = 0;
         ListNode<Integer> dummyNode = linkedList.getHead();
         while (dummyNode.getNext() != null) {
-            if (checkPrime(dummyNode.getElement()) == true) {
+            if (checkPrime(dummyNode.getElement())) {
                 count++;
             }
             
@@ -47,6 +46,7 @@ public class MyBasicLinkedList {
             if(nextDummyNode.getElement() % 2 == 0){
                 ListNode<Integer> temp = new ListNode<Integer>(item);
                 temp.setNext(nextDummyNode);
+                assert dummyNode != null;
                 dummyNode.setNext(temp);
                 break;
             }

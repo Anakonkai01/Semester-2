@@ -1,3 +1,5 @@
+package MyLinkedList;
+
 public class ListNode <E> {
 	/* data attributes */
 	private E element;

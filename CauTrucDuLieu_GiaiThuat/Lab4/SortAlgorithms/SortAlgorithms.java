@@ -1,4 +1,6 @@
-package Lab4.SortAlgorithms;
+package SortAlgorithms;
+
+import Lab2.implementStack.MyStack;
 
 public class SortAlgorithms {
     public static void selectionSort(int[] a){        
@@ -128,4 +130,44 @@ public class SortAlgorithms {
             quickSort(a, pivot + 1, r); 
         }
     }
+
+    static void insertElementStack(MyStack<Integer> myStack, Integer dataPrev) {
+
+        if (dataPrev != null) {
+            // If the stack is empty, just push the element back
+            if (myStack.isEmpty()) {
+                myStack.push(dataPrev);
+                return ;
+            }
+
+            // Compare with the top of the stack and insert in sorted order
+            if (myStack.getPeek() > dataPrev) {
+                int temp = myStack.pop(); // Temporarily remove the top
+                insertElementStack(myStack, dataPrev); // Recur to insert
+                myStack.push(temp); // Push the temporarily removed element back
+            } else {
+                // If it's already in the correct order, just push it back
+                myStack.push(dataPrev);
+            }
+        }
+
+    }
+
+    public static void StackSort(MyStack<Integer> myStack) {
+        // Base case: If the stack is empty, return
+        if (myStack.isEmpty()) {
+            return;
+        }
+
+        // Pop the top element
+        Integer dataPrevious = myStack.pop();
+
+        // Sort the remaining stack
+        StackSort(myStack);
+
+        // Insert the popped element back in sorted order
+        insertElementStack(myStack, dataPrevious);
+    }
+
 }
+

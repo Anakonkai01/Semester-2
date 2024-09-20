@@ -1,3 +1,5 @@
+package MyLinkedList;
+
 import java.util.*;
 
 public interface ListInterface <E> {

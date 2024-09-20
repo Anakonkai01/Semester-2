@@ -1,8 +1,9 @@
+package MyLinkedList;
+
 import java.util.*;
 
-import org.w3c.dom.Node;
-public class BasicLinkedList <E> implements ListInterface <E> {
-	private ListNode <E> head = null;
+public class BasicLinkedList <E> implements ListInterface<E> {
+	private ListNode<E> head = null;
 	private int num_nodes = 0;
 
     public ListNode<E> getHead(){
