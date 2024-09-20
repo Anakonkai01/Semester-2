@@ -17,7 +17,7 @@ public class SortAlgorithms {
         }
     }
 
-    // can chung minh tinh dung dan cua thuat toan 
+    // can chung minh tinh dung dan cua thuat toan 6
     public static void bubbleSort(int[] a){
         for(int i = 0; i < a.length - 1; ++i){
             for(int j = 0; j < a.length - i - 1; ++j){
@@ -44,11 +44,88 @@ public class SortAlgorithms {
         }
     }
 
-    public static void mergeSort(int[] a){
-        
+
+    static void merge(int[] a,int l, int m, int r){
+        int size1 = m - l + 1;
+        int size2 = r - m;
+
+        int[] LArray = new int[size1];
+        int[] RArray = new int[size2];
+
+        for(int i = 0; i < size1; i++){
+            LArray[i] = a[l + i];
+        }
+        for(int j = 0; j < size2; j++){
+            RArray[j] = a[m + 1 + j];
+        }
+
+        int i = 0; int j = 0;
+        int k = l;
+        while(i < size1 && j < size2){
+            if(LArray[i] <= RArray[j]){
+                a[k] = LArray[i];
+                i++;
+            }
+            else{
+                a[k] = RArray[j];
+                j++;
+            }
+            k++;    
+        }
+
+        while (i < size1) {
+            a[k] = LArray[i];
+            i++; k++;
+        }
+        while(j < size2){
+            a[k] = RArray[j];
+            j++; k++;
+        }
+    }
+    public static void mergeSort(int[] a, int l, int r){
+        if(l < r ){
+            int m = (l + r)/2;
+
+            mergeSort(a, l, m);
+            mergeSort(a, m+1, r);
+            
+            merge(a, l, m, r);
+        }
+    }
+    
+
+
+    static void swap(int[] a, int i, int j){
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+    static int partition(int[] a, int l, int r){
+        // choose the last is the pivot
+        int pivot = a[r];
+        // create the index that smaller than the pivot
+        int i = l - 1;
+        // move smaller element to the left of the partition
+        for(int j = l; j < r; j++){
+            if(a[j] < pivot){
+                i++;
+                swap(a, i, j);
+            }
+        }
+
+        //swap the smaller index with the pivot 
+        swap(a, i + 1, r);
+        // return the new pivot
+        return i + 1;
+
     }
 
-    public static void quickSort(int [] a){
+    public static void quickSort(int [] a, int l, int r){
+        if( l < r){
+            int pivot = partition(a,l,r);
 
+            quickSort(a, l, pivot - 1);
+            quickSort(a, pivot + 1, r); 
+        }
     }
 }
