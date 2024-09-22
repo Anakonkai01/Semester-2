@@ -1,0 +1,46 @@
+CREATE TABLE Khoa (
+    MaKhoa VARCHAR(50) PRIMARY KEY,
+    Ten VARCHAR(100),
+    NamThanhLap INT
+);
+
+CREATE TABLE SinhVien(
+    Tensv VARCHAR(50),
+    Masv VARCHAR(50) PRIMARY KEY,
+    NamSinh INT,
+    MaKhoa VARCHAR(50),
+    FOREIGN KEY (MaKhoa) REFERENCES Khoa(MaKhoa)
+);
+
+
+CREATE TABLE MonHoc(
+    Tenmh VARCHAR(100),
+    Mamh VARCHAR(50) PRIMARY KEY,
+    TinChi INT,
+    MaKhoa VARCHAR(50),
+    FOREIGN KEY(MaKhoa) REFERENCES Khoa(MaKhoa)
+);
+
+CREATE TABLE DieuKien(
+    Mamh VARCHAR(50) PRIMARY KEY,
+    FOREIGN KEY(Mamh) REFERENCES MonHoc(Mamh),
+    Mamh_Truoc VARCHAR(50) PRIMARY KEY,
+    FOREIGN KEY(Mamh_Truoc) REFERENCES MonHoc(Mamh)
+);
+
+CREATE TABLE HocPhan(
+    Mahp VARCHAR(50) PRIMARY KEY,
+    Mamh VARCHAR(50),
+    FOREIGN KEY(Mamh) REFERENCES MonHoc(Mamh),
+    HocKy VARCHAR(50),
+    Nam INT,
+    GiaoVien VARCHAR(100)
+);
+
+CREATE TABLE KetQua(
+    Masv VARCHAR(50) PRIMARY KEY,
+    FOREIGN KEY(Masv) REFERENCES SinhVien(Masv),
+    Mahp VARCHAR(50) PRIMARY KEY,
+    FOREIGN KEY(Mahp) REFERENCES HocPhan(Mahp),
+    Diem VARCHAR(50)
+);
