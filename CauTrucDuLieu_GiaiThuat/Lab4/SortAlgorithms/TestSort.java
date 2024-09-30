@@ -1,18 +1,16 @@
 package SortAlgorithms;
 
-
-import Lab2.implementStack.MyStack;
-
+import java.util.*;
 public class TestSort {
     public static void main(String[] args) {
-        MyStack<Integer> myStack = new MyStack<>();
-        myStack.push(12);
-        myStack.push(11);
-        myStack.push(6);
-        myStack.push(4);
-        myStack.push(5);
-        SortAlgorithms.StackSort(myStack);
-
-        myStack.print();
+        Random rand = new Random();
+        Stack<Integer> myStack = new Stack<>();
+        for(int i = 10; i > 0; i--){
+            int ran = rand.nextInt(100);
+            myStack.push(ran);
+        }
+        System.out.println(myStack);
+        SortAlgorithms.sortStack(myStack);
+        System.out.println(myStack);
     }
 }

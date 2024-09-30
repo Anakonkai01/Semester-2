@@ -3,11 +3,6 @@ package Lab2.Exercise4;
 import Lab2.implementStack.MyStack;
 
 public class ValidParentheses {
-    
-
-
-
-
 
     public static boolean checkValidParentheses(String str){
         MyStack<Character> myStack = new MyStack<>();

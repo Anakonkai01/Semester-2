@@ -1,0 +1,22 @@
+void backtrack(Tham số hiện tại) {
+        // Bước 1: Kiểm tra điều kiện dừng (base case)
+        if (Điều kiện dừng thỏa mãn) {
+            Lưu giải pháp;
+            return;
+        }
+        
+        // Bước 2: Duyệt qua các lựa chọn có thể tại bước hiện tại
+        for (mỗi lựa chọn khả dĩ) {
+            // Kiểm tra nếu lựa chọn này hợp lệ
+            if (Lựa chọn hợp lệ) {
+                // Chọn lựa chọn này (thực hiện bước tiếp theo)
+                Chọn lựa chọn;
+                
+                // Bước 3: Đệ quy để xử lý bước tiếp theo
+                backtrack(Tham số mới);
+                
+                // Bước 4: Quay lui (hủy lựa chọn vừa thực hiện)
+                Bỏ lựa chọn;
+            }
+        }
+    }

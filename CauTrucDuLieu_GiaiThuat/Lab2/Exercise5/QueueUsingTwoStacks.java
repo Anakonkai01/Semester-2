@@ -49,12 +49,12 @@ public class QueueUsingTwoStacks <E> {
         queue.enQueue(3);
         
         System.out.println(queue.deQueue()); // Output: 1
-        System.out.println(queue.getFront());    // Output: 2
+        System.out.println(queue.getFront());// Output: 2
         System.out.println(queue.deQueue()); // Output: 2
         System.out.println(queue.isEmpty()); // Output: false
         System.out.println(queue.deQueue()); // Output: 3
         System.out.println(queue.isEmpty()); // Output: true
-    
+        
     }
 
 }

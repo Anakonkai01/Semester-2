@@ -9,7 +9,7 @@ class Exercise1{
         }
         return n*factorial(n-1);
     } 
-
+    // recursion
     // b
     public static long computeXPowerN(int x, int n){
         if(n <= 1) return x;

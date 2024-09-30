@@ -1,10 +1,12 @@
 package Lab2.implementQueue;
 
+import java.util.LinkedList;
+
 public class MyQueue <E> implements QueueInterface <E>{
     private Node<E> front;
     private Node<E> rear;
     private int numNode;
-
+    
     public MyQueue(){
         this.front = null;
         this.rear = null;

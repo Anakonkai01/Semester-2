@@ -1,7 +1,9 @@
 package SortAlgorithms;
 
 import Lab2.implementStack.MyStack;
+import Lab2.implementStack.StackInterface;
 
+import java.util.*;
 public class SortAlgorithms {
     public static void selectionSort(int[] a){        
         for(int i = 0; i < a.length - 1; ++i){
@@ -131,43 +133,71 @@ public class SortAlgorithms {
         }
     }
 
-    static void insertElementStack(MyStack<Integer> myStack, Integer dataPrev) {
+    
 
-        if (dataPrev != null) {
-            // If the stack is empty, just push the element back
-            if (myStack.isEmpty()) {
-                myStack.push(dataPrev);
-                return ;
-            }
+//    static void insertElementStack(MyStack<Integer> myStack, Integer dataPrev) {
+//
+//        if (dataPrev != null) {
+//            // If the stack is empty, just push the element back
+//            if (myStack.isEmpty()) {
+//                myStack.push(dataPrev);
+//                return ;
+//            }
+//
+//            // Compare with the top of the stack and insert in sorted order
+//            if (myStack.getPeek() > dataPrev) {
+//                int temp = myStack.pop(); // Temporarily remove the top
+//                insertElementStack(myStack, dataPrev); // Recur to insert
+//                myStack.push(temp); // Push the temporarily removed element back
+//            } else {
+//                // If it's already in the correct order, just push it back
+//                myStack.push(dataPrev);
+//            }
+//        }
+//
+//    }
+//    public static void StackSort(MyStack<Integer> myStack, boolean check) {
+//        // Base case: If the stack is empty, return
+//        if (myStack.isEmpty()) {
+//            return;
+//        }
+//
+//        // Pop the top element
+//        Integer dataPrevious = myStack.pop();
+//
+//        // Sort the remaining stack
+//        StackSort(myStack);
+//
+//        // Insert the popped element back in sorted order
+//        insertElementStack(myStack, dataPrevious);
+//    }
 
-            // Compare with the top of the stack and insert in sorted order
-            if (myStack.getPeek() > dataPrev) {
-                int temp = myStack.pop(); // Temporarily remove the top
-                insertElementStack(myStack, dataPrev); // Recur to insert
-                myStack.push(temp); // Push the temporarily removed element back
-            } else {
-                // If it's already in the correct order, just push it back
-                myStack.push(dataPrev);
-            }
+
+    public static void insertStack(Stack<Integer> myStack, int element){
+        if(myStack.isEmpty() == true || myStack.peek() < element){
+            myStack.push(element);
         }
-
+        else{
+            int temp = myStack.pop();
+            insertStack(myStack, element);
+            myStack.push(temp);
+        }
     }
 
-    public static void StackSort(MyStack<Integer> myStack) {
-        // Base case: If the stack is empty, return
-        if (myStack.isEmpty()) {
+
+    public static void sortStack(Stack<Integer> myStack){
+        if(myStack.isEmpty()){
             return;
         }
 
-        // Pop the top element
-        Integer dataPrevious = myStack.pop();
-
-        // Sort the remaining stack
-        StackSort(myStack);
-
-        // Insert the popped element back in sorted order
-        insertElementStack(myStack, dataPrevious);
+        int e = myStack.pop();
+        sortStack(myStack);
+        
+        insertStack(myStack, e);
     }
 
+    
+
+    // author Le Minh Nhut 
 }
 
